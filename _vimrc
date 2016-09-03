@@ -1,29 +1,27 @@
-"µ±Ç°ĞĞ
+"å½“å‰è¡Œ
 ":highlight LineNr ctermfg=red
 ":highlight LineNr ctermbg=white
 set cursorline
-"²»ÓëVI¼æÈİ
+"ä¸ä¸VIå…¼å®¹
 set nocompatible
-set showcmd "Show (partial) command in status line.
-"±àÂëÖ§³Ö
-"set encoding=utf-8
 let &termencoding=&encoding
-set fileencoding=utf-8
+set showcmd "Show (partial) command in status line.
+"ç¼–ç æ”¯æŒ
 set fileencodings=ucs-bom,utf-8,gbk,latin1
-"Óï·¨¸ßÁÁ
+"è¯­æ³•é«˜äº®
 syntax enable
 syntax on
 set ch=2		" Make command line two lines high
-"µ±Ç°ĞĞ¸ßÁÁ
+"å½“å‰è¡Œé«˜äº®
 setlocal cursorline
-"ÅäÉ«·ç¸ñ
+"é…è‰²é£æ ¼
 colorscheme desert
 set showmatch
 "set tabstop=4
 "set softtabstop=4
 "set shiftwidth=4
 set ffs=dos,unix
-"c ¸ñÊ½Ëõ½øÎÄ±¾ÔİÊ±È¡Ïûµô
+"c æ ¼å¼ç¼©è¿›æ–‡æœ¬æš‚æ—¶å–æ¶ˆæ‰
 "set cindent
 set autoindent
 set nu
@@ -67,7 +65,7 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
         \set guioptions+=m <Bar>
     \endif<CR>
 winpos 10 10
-" ¿ì½İ¼ü×Ô¶¨Òå
+" å¿«æ·é”®è‡ªå®šä¹‰
 map <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
 map <silent> <F9> :TlistToggle<cr>
@@ -80,9 +78,9 @@ inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
-"É¾³ıĞĞÎ²¿Õ°×
+"åˆ é™¤è¡Œå°¾ç©ºç™½
 au BufWritePre * sil %s/\s\+$//e
-"É¾³ıÎÄ¼şÎ²¿ÕĞĞ
+"åˆ é™¤æ–‡ä»¶å°¾ç©ºè¡Œ
 au BufWritePre * %s/^$\n\+\%$//ge
 
 " Search for selected text, forwards or backwards.
@@ -97,7 +95,7 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-"À¨ºÅ×Ô¶¯²¹È«
+"æ‹¬å·è‡ªåŠ¨è¡¥å…¨
 "-------------------------------------------------------------------------------
 " autocomplete parenthesis, brackets and braces
 "-------------------------------------------------------------------------------
@@ -177,4 +175,5 @@ endfunction
 set guitabtooltip=%{GuiTabToolTip()}
 
 
-command Getuu %s/<a href="\(.*\)" target.*c3.*\(2016.*µã\).*$/\2\t\1/g | g/^\s*$/d
+command Getuu %s/<a href="\(.*\)" target.*c3.*\(2016.*ç‚¹\).*$/\2\t\1/g | g/^\s*$/d
+
