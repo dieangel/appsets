@@ -1,27 +1,48 @@
-"å½“å‰è¡Œ
+"µ±Ç°ĞĞ
 ":highlight LineNr ctermfg=red
 ":highlight LineNr ctermbg=white
-set cursorline
-"ä¸ä¸VIå…¼å®¹
 set nocompatible
-let &termencoding=&encoding
+set foldenable
+set fdm=syntax
+set fdm=indent
+set foldlevelstart=99
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=$vim/bundle/Vundle.vim
+call vundle#begin('$vim/bundle')
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'fatih/vim-go'
+Bundle 'plasticboy/vim-markdown'
+call vundle#end()
+
+set cursorline
+"²»ÓëVI¼æÈİ
 set showcmd "Show (partial) command in status line.
-"ç¼–ç æ”¯æŒ
-set fileencodings=ucs-bom,utf-8,gbk,latin1
-"è¯­æ³•é«˜äº®
+"±àÂëÖ§³Ö
+"set encoding=utf-8
+let &termencoding=&encoding
+set fileencoding=utf-8
+set fileencodings=utf-8,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom
+set fileencodings=utf-8,gbk
+"Óï·¨¸ßÁÁ
 syntax enable
 syntax on
 set ch=2		" Make command line two lines high
-"å½“å‰è¡Œé«˜äº®
+"µ±Ç°ĞĞ¸ßÁÁ
 setlocal cursorline
-"é…è‰²é£æ ¼
-colorscheme desert
+"ÅäÉ«·ç¸ñ
+colorscheme molokai
 set showmatch
 "set tabstop=4
 "set softtabstop=4
 "set shiftwidth=4
 set ffs=dos,unix
-"c æ ¼å¼ç¼©è¿›æ–‡æœ¬æš‚æ—¶å–æ¶ˆæ‰
+"c ¸ñÊ½Ëõ½øÎÄ±¾ÔİÊ±È¡Ïûµô
 "set cindent
 set autoindent
 set nu
@@ -30,7 +51,6 @@ if &term=="xterm"
 	set t_Sb=^[[4%dm
 	set t_Sf=^[[3%dm
 endif
-filetype on
 filetype plugin indent on
 set history=400
 if exists("&autoread")
@@ -42,12 +62,16 @@ set nobackup
 set nowb
 
 "Interface set
-set guifont=Fixedsys:h10
+"set guifont=Fixedsys:h10
+set guifont=Courier\ New:h10
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 set lines=35 columns=150
 set ruler
-"set nowrap
+"×´Ì¬À¸
+set laststatus=2
+set stl=%t%m%r%y[0X%B][POS=%l,%c,%P]
+set nowrap
 set autochdir
 set is
 set hls
@@ -65,7 +89,7 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
         \set guioptions+=m <Bar>
     \endif<CR>
 winpos 10 10
-" å¿«æ·é”®è‡ªå®šä¹‰
+" ¿ì½İ¼ü×Ô¶¨Òå
 map <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
 map <silent> <F9> :TlistToggle<cr>
@@ -78,9 +102,9 @@ inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
-"åˆ é™¤è¡Œå°¾ç©ºç™½
-au BufWritePre * sil %s/\s\+$//e
-"åˆ é™¤æ–‡ä»¶å°¾ç©ºè¡Œ
+"É¾³ıĞĞÎ²¿Õ°×
+"au BufWritePre * sil %s/\s\+$//e
+"É¾³ıÎÄ¼şÎ²¿ÕĞĞ
 au BufWritePre * %s/^$\n\+\%$//ge
 
 " Search for selected text, forwards or backwards.
@@ -95,17 +119,16 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-"æ‹¬å·è‡ªåŠ¨è¡¥å…¨
+"À¨ºÅ×Ô¶¯²¹È«
 "-------------------------------------------------------------------------------
 " autocomplete parenthesis, brackets and braces
 "-------------------------------------------------------------------------------
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-"
-vnoremap ( s()<Esc>P
-vnoremap [ s[]<Esc>P
-vnoremap { s{}<Esc>P
+"inoremap ( ()<Left>
+"inoremap [ []<Left>
+"inoremap { {}<Left>
+"vnoremap ( s()<Esc>P
+"vnoremap [ s[]<Esc>P
+"vnoremap { s{}<Esc>P
 
 "
 "tab show number
@@ -175,5 +198,4 @@ endfunction
 set guitabtooltip=%{GuiTabToolTip()}
 
 
-command Getuu %s/<a href="\(.*\)" target.*c3.*\(2016.*ç‚¹\).*$/\2\t\1/g | g/^\s*$/d
-
+command Getuu %s/<a href="\(.*\)" target.*c3.*\(2016.*µã\).*$/\2\t\1/g | g/^\s*$/d
