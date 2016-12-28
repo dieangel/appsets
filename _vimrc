@@ -17,6 +17,8 @@ call vundle#begin('$vim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'fatih/vim-go'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'plasticboy/vim-markdown'
 call vundle#end()
 
@@ -63,7 +65,7 @@ set nowb
 
 "Interface set
 "set guifont=Fixedsys:h10
-set guifont=Courier\ New:h10
+set guifont=Ubuntu\ Mono:h12
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 set lines=35 columns=150
